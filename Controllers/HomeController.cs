@@ -18,7 +18,7 @@ namespace TestTaskDotnet.Controllers
             return View();
         }
 
-        public IActionResult Privacy()
+        public IActionResult RegisterForm()
         {
             return View();
         }

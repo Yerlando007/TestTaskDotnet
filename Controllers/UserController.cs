@@ -28,9 +28,9 @@ namespace TestTaskDotnet.Controllers
         //POST
 
         [HttpPost]
-        public async Task<IActionResult> RegisterNewUser(string phoneNumber, string userName, string password)
+        public async Task<IActionResult> RegisterNewUser(string phoneNumber, string name, string password)
         {
-            var result = await _userService.RegisterNewUser(phoneNumber, userName, password);
+            var result = await _userService.RegisterNewUser(phoneNumber, name, password);
             return result ? Ok(result) : BadRequest($"Ошибка при регистрации пользователя.");
         }
     }

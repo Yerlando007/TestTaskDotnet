@@ -12,7 +12,7 @@ using TestTaskDotnet.Models.Base;
 namespace TestTaskDotnet.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    [Migration("20220727175809_Init")]
+    [Migration("20220729043247_Init")]
     partial class Init
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
