@@ -22,6 +22,15 @@ namespace TestTaskDotnet.Controllers
         {
             return View();
         }
+        public IActionResult SigIn()
+        {
+            return View();
+        }
+
+        public IActionResult GetRequestOfUser()
+        {
+            return View();
+        }
 
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
         public IActionResult Error()
