@@ -20,7 +20,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Views\User - Copy\" />
+    <Folder Include="Views\Request - Copy\" />
   </ItemGroup>
 
 </Project>

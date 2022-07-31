@@ -15,6 +15,11 @@ namespace TestTaskDotnet.Controllers
             _requestService = requestService;
         }
 
+        public IActionResult MessagePage()
+        {
+            return View();
+        }
+
         //GET
 
         [HttpGet]
@@ -54,24 +59,24 @@ namespace TestTaskDotnet.Controllers
         }
 
         [HttpPost]
-        public async Task<IActionResult> RemoveRequest(int requestID)
+        public async Task<IActionResult> RemoveRequest(int Id)
         {
-            var result = await _requestService.RemoveRequest(requestID);
+            var result = await _requestService.RemoveRequest(Id);
             return result ? Ok(result) : BadRequest("Ошибка при удалении заявки.");
         }
 
         [HttpPost]
-        public async Task<IActionResult> CancelRequest(int requestID)
+        public async Task<IActionResult> CancelRequest(int Id)
         {
-            var result = await _requestService.CancelRequest(requestID);
-            return result ? Ok(result) : BadRequest($"Заявка с ID {requestID} не существует.");;
+            var result = await _requestService.CancelRequest(Id);
+            return result ? Ok(result) : BadRequest($"Заявка с ID {Id} не существует.");;
         }
 
         [HttpPost]
-        public async Task<IActionResult> CloseRequest(int requestID)
+        public async Task<IActionResult> CloseRequest(int Id)
         {
-            var result = await _requestService.CloseRequest(requestID);
-            return result ? Ok(result) : BadRequest($"Заявка с ID {requestID} не существует."); ;
+            var result = await _requestService.CloseRequest(Id);
+            return result ? Ok(result) : BadRequest($"Заявка с ID {Id} не существует."); ;
         }
     }
 }

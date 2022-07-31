@@ -18,21 +18,13 @@ namespace TestTaskDotnet.Controllers
 
         [HttpGet]
         public async Task<IActionResult> Login(string phoneNumber, string password)
-        //для вывода сообщения на страницу
-        {
-            var result = await _userService.Login(phoneNumber, password);
-            if (result == true)
-            {
-                ViewBag.Message = "Вы вошли";
-            }
-            else
-            {
-                ViewBag.Message = "Пароль или логин введен неверно";
-            }
-            return View();
-        }
-        //если работать напрямую с запросами
-        // => Ok( await _userService.Login(phoneNumber, password) );
+        ////для вывода сообщения на страницу
+        //{
+        //    var result = await _userService.Login(phoneNumber, password);
+        //    ViewBag.Message = result ? "Вы вошли" : "Пароль или логин введен неверно";
+        //    return View();
+        //}
+         => Ok(await _userService.Login(phoneNumber, password) );
 
 
         [HttpGet]
@@ -47,17 +39,10 @@ namespace TestTaskDotnet.Controllers
         {
             //для вывода сообщения на страницу
             var result = await _userService.RegisterNewUser(phoneNumber, name, password);
-            if (result == true)
-            {
-                ViewBag.Message = "Регистрация прошла успешно";               
-            }
-            else
-            {
-                ViewBag.Message = "Ошибка при регистрации пользователя";
-            }
-            return View();
+            //ViewBag.Message = result ? "Регистрация прошла успешно" : "Ошибка при регистрации пользователя";
+            //return View();
             //если работать напрямую с запросами
-            //return result ? Ok(result) : BadRequest($"Ошибка при регистрации пользователя.");
+            return result ? Ok("Вы успешно зарегистрировались") : BadRequest($"Ошибка при регистрации пользователя.");
         }
     }
 }

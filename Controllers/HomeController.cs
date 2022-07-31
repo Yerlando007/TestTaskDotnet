@@ -27,7 +27,7 @@ namespace TestTaskDotnet.Controllers
             return View();
         }
 
-        public IActionResult GetRequestOfUser()
+        public IActionResult Request()
         {
             return View();
         }
