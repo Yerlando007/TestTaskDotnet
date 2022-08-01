@@ -31,6 +31,14 @@ namespace TestTaskDotnet.Controllers
         {
             return View();
         }
+        public IActionResult RequestHistory()
+        {
+            return View();
+        }
+        public IActionResult MyRequests()
+        {
+            return View();
+        }
 
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
         public IActionResult Error()

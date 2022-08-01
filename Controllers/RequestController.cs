@@ -27,8 +27,8 @@ namespace TestTaskDotnet.Controllers
             => Ok(_requestService.GetAllRequests());
 
         [HttpGet]
-        public async Task<IActionResult> GetRequest(int requestID)
-            => Ok(await _requestService.GetRequest(requestID));
+        public async Task<IActionResult> GetRequest(int Id)
+            => Ok(await _requestService.GetRequest(Id));
 
         [HttpGet]
         public IActionResult GetRequestsHistory()
@@ -38,16 +38,16 @@ namespace TestTaskDotnet.Controllers
         //POST
 
         [HttpPost]
-        public async Task<IActionResult> AddRequestToUser(int requestID, string userName)
+        public async Task<IActionResult> AddRequestToUser(int Id, string userName)
         {
-            var result = await _requestService.AddRequestToUser(requestID, userName);
+            var result = await _requestService.AddRequestToUser(Id, userName);
             return result ? Ok(result) : BadRequest($"Ошибка при добавлении заявки пользователю {userName}.");
         }
 
         [HttpPost]
-        public async Task<IActionResult> RemoveRequestFromUser(int requestID, string userName)
+        public async Task<IActionResult> RemoveRequestFromUser(int Id, string userName)
         {
-            var result = await _requestService.RemoveRequestFromUser(requestID, userName);
+            var result = await _requestService.RemoveRequestFromUser(Id, userName);
             return result ? Ok(result) : BadRequest($"Ошибка при удалении заявки у пользователя {userName}.");
         }
 
