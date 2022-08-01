@@ -37,10 +37,12 @@ namespace TestTaskDotnet.Controllers
 
         //POST
 
+
         [HttpPost]
         public async Task<IActionResult> AddRequestToUser(int Id, string Name)
         {
-            var result = await _requestService.AddRequestToUser(Id, userName);
+            var result = await _requestService.AddRequestToUser(Id, Name);
+
             return result ? Ok(result) : BadRequest($"Ошибка при добавлении заявки пользователю {Name}.");
         }
 
