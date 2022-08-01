@@ -28,8 +28,8 @@ namespace TestTaskDotnet.Controllers
 
 
         [HttpGet]
-        public async Task<IActionResult> GetUserRequests(string name)
-           => Ok( await _userService.GetUserRequests(name) );
+        public async Task<IActionResult> GetUserRequests(string userName)
+           => Ok( await _userService.GetUserRequests(userName) );
 
 
         //POST
