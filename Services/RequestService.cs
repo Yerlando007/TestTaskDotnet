@@ -1,4 +1,6 @@
-﻿using Microsoft.EntityFrameworkCore;
+using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
+using Newtonsoft.Json;
 using TestTaskDotnet.Interfaces;
 using TestTaskDotnet.Models.Base;
 using TestTaskDotnet.Models.RequestModels;
@@ -61,6 +63,7 @@ namespace TestTaskDotnet.Services
             {
                 var request = await _getRequestByID(requestID);
                 var user = await _db.Users.FirstOrDefaultAsync(u => u.Name == userName);
+                user.Requests = new List<Request>();
                 user.Requests.Add(request);
 
                 _db.Users.Update(user);
@@ -80,6 +83,7 @@ namespace TestTaskDotnet.Services
             {
                 var request = await _getRequestByID(requestID);
                 var user = await _db.Users.FirstOrDefaultAsync(u => u.Name == userName);
+                user.Requests = await _db.Requests.Where(u => u.Id == request.Id).ToListAsync();
                 user.Requests.Remove(request);
 
                 _db.Users.Update(user);
